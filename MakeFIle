@@ -1,0 +1,23 @@
+CC = gcc
+CFLAGS = -c -Wall
+all: game
+game: main.o gamelogic.o login.o other.o statistics.o
+	$(CC) main.o gamelogic.o login.o other.o statistics.o -o game
+
+main.o: main.c
+	$(CC) $(CFLAGS) main.c
+
+gamelogic.o: gamelogic.c
+	$(CC) $(CFLAGS) gamelogic.c
+
+login.o: login.c
+	$(CC) $(CFLAGS) login.c
+
+other.o: other.c
+	$(CC) $(CFLAGS) other.c
+
+statistics.o: statistics.c
+	$(CC) $(CFLAGS) statistics.c
+
+clean:
+	-DEL *.o game.exe
